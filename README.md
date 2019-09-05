@@ -6,9 +6,13 @@ This repository contains C programs for the implementation of various data struc
 Run the following commands,
 
  - Windows:
+ 
 `gcc  \<*insert name of data structure*\>_client.c`
+
 `a.exe`
 
  - Ubuntu
+ 
  `gcc  \<*insert name of data structure*\>_client.c`
+ 
 `./a.out`
