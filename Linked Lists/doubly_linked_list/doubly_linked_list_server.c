@@ -41,12 +41,6 @@ n* insert_at_position(n* head)
 		head=temp;
 
 	}
-	/*else if(head==NULL)
-	{
-		head=temp;
-		temp->prev=NULL;
-		temp->next=NULL;
-	}*/
 	else
 	{	for(int i=1;i<pos-1;i++)
 		pres=pres->next;
@@ -102,7 +96,7 @@ n* insert(n* head)
 	}
 }
 
-void delete_rear(n* head)
+n* delete_rear(n* head)
 {
 	n* pres=head;
 	if (pres->next==NULL)
@@ -117,6 +111,7 @@ void delete_rear(n* head)
 		pres->prev->next=NULL;
 		free(pres);
 	}
+	return head;
 }
 
 n* delete_at_position(n* head)
@@ -157,11 +152,11 @@ n* delete(n* head)
 {
 	n* temp;
 	n* h=head;
-	
-	
 	if(head==NULL)
-	{printf("\n\n\t\tList Empty!\n ");
-	return head;}
+	{
+		printf("\n\n\t\tList Empty!\n ");
+		return head;
+	}
 	
 	else
 	{
@@ -172,7 +167,7 @@ n* delete(n* head)
 		scanf("%d",&n);
 		switch(n)
 		{
-			case 1: delete_rear(head);
+			case 1: head=delete_rear(head);
 						break;
 			case 2: head=delete_at_position(head);
 						break;
@@ -199,4 +194,39 @@ void display(n* head)
 		}	
 		printf("\n");
 	}
+}
+
+n* selection_sort(n* head)
+{
+	int min=99999999;
+	n* pres=head;
+	n* temp=NULL;
+	int t=0;
+	
+	if(head!=NULL)
+	{
+		for(n* i=head;i->next!=NULL;)
+		{
+			min=i->e;
+			for( n* j=i->next;j!=NULL;)
+			{
+
+				if(j->e<min)
+				{
+					min=j->e;
+					temp=j;
+				}
+				
+				j=j->next;
+			}
+			if(min!=i->e)
+			{
+				t=temp->e;
+				temp->e=i->e;
+				i->e=t;
+			}
+			i=i->next;
+		}
+	}
+	return head;
 }

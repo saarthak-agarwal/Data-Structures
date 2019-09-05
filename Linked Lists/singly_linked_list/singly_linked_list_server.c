@@ -162,11 +162,47 @@ void display(n* h)
 		printf("\n\t\tList is Empty!\n");
 	else
 	{
+		printf("\n\n");
 		while(h!=NULL)
 		{
 			printf("%d\t-->\t",h->e );
 			h=h->next;
 		}
-		printf("\n");
+		printf("\n\n");
 	}
+}
+
+n* selection_sort(n* head)
+{
+	int min=99999999;
+	n* pres=head;
+	n* temp=NULL;
+	int t=0;
+	
+	if(head!=NULL)
+	{
+		for(n* i=head;i->next!=NULL;)
+		{
+			min=i->e;
+			for( n* j=i->next;j!=NULL;)
+			{
+
+				if(j->e<min)
+				{
+					min=j->e;
+					temp=j;
+				}
+				
+				j=j->next;
+			}
+			if(min!=i->e)
+			{
+				t=temp->e;
+				temp->e=i->e;
+				i->e=t;
+			}
+			i=i->next;
+		}
+	}
+	return head;
 }
