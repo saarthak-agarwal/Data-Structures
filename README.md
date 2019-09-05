@@ -5,13 +5,13 @@ This repository contains C programs for the implementation of various data struc
 ## To implement any data structure on your system
 Run the following commands,
 
- - *Windows*:
+ - ***Windows***:
  
 `gcc  <insert name of data structure>_client.c`
 
 `a.exe`
 
- - *Ubuntu*
+ - ***Ubuntu***
  
  `gcc  <insert name of data structure>_client.c`
  
