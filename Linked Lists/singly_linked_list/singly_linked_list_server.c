@@ -206,3 +206,40 @@ n* selection_sort(n* head)
 	}
 	return head;
 }
+
+void delete_multiple_occurences(n* head)
+{
+	n* temp=NULL;
+	n* prev=NULL;
+	n* p=head;	
+	n* q=NULL;	
+	if(head==NULL)
+	printf("\n\t\tList Empty!\n");
+	else
+	{
+		while(p!=NULL)
+		{
+			prev=p;
+			q=p->next;
+			while(q!=NULL)
+			{
+				int c=0;
+				if(p->e==q->e)
+				{
+					c=1;
+					temp=q;
+					prev->next=q->next;
+				}
+				if(c==0)
+				prev=q;
+				q=q->next;
+				if(c==1)
+				free(temp);
+			}			
+			p=p->next;
+		}
+	printf("\n\t\tDuplicate elements deleted!\n");
+	}
+	
+}
+

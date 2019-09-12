@@ -3,10 +3,10 @@ int main()
 {
 	n* header=NULL;
 	int n=1;
-	while(n!=5)
+	while(n!=6)
 	{
 
-		printf("\n\n\t\tOptions:\n\t1. Enter an element\n\t2. Delete an element\n\t3. Sort the elements of the list\n\t4. Display the elements \n\t5. Exit\n");
+		printf("\n\n\t\tOptions:\n\t1. Enter an element\n\t2. Delete duplicate element\n\t3. Delete an element\n\t4. Sort the elements of the list\n\t5. Display the elements \n\t6. Exit\n");
 		printf("\tEnter your choice: ");
 		scanf("%d",&n);
 
@@ -15,15 +15,17 @@ int main()
 		
 			case 1: header=add(header);
 					break;
-
-			case 2: header=delete(header);
+			case 2: delete_multiple_occurences(header);
 					break;
-			case 3: header=selection_sort(header);
+
+			case 3: header=delete(header);
+					break;
+			case 4: header=selection_sort(header);
 					display(header);
 					break;
-			case 4: display(header);
+			case 5: display(header);
 					break;
-			case 5: break;
+			case 6: break;
 			default: printf("\nInvalid Choice! \n Please try again....\n");
 					 break;
 		}
